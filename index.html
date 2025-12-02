@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <title>INVOICE</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="topHeader">
+                <h3><span class="SaskaitosNr"></span></h3>
+                <div class="SaskaitosData">
+                    <h4>Dokumento data:&nbsp;</h4>
+                </div>
+            </div>
+            <section class="headerSection">
+                <div class="buyer">
+                    <h4>Prikėjas:</h4>
+                </div>
+                <div class="seller">
+                    <h4>Pardavėjas:</h4>
+                </div>
+            </section>
+
+            <div class="line">____________________________________________________________________________________
+            </div>
+        </header>
+        <main>
+            <section class="items">
+                <section class="TableColumns">
+                    <div class="Numeris">Nr.</div>
+                    <div class="Preke"> Prekė</div>
+                    <div class="Kaina">Kaina</div>
+                    <div class="Kiekis"> Kiekis</div>
+                    <div class="Nuolaida">Nuolaida</div>
+                    <div class="BePVM">Suma</div>
+                    <div class="SuPVM">Su PVM</div>
+                </section>
+
+            </section>
+        </main>
+        <footer>
+            <div class="shippingPrice"></div>
+
+            <div class="sumosContainer">
+                <div class="sumos">
+                    <div class="prekiuSumaText">Prekių suma:</div>
+                    <div class="prekiuSumabePVMText">Iš viso suma be PVM:</div>
+                    <div class="prekiuSumaPVMText">PVM suma (21%): </div>
+                    <div class="prekiuSumaVisasText">Iš viso suma su PVM:</div>
+                </div>
+                <div class="totalPrice"></div>
+            </div>
+            <div class="dokTerminas">
+                Apmokėjimo terminas iki:&nbsp;
+            </div>
+            <div class="Isdave">
+                <div>
+                    <h4>Prekes išdavė:</h4>
+                </div>
+                <div>_________________________________________</div>
+                <div>(pareigos, vardas, pavardė, parašas)</div>
+            </div>
+            <div class="Priime">
+                <div>
+                    <h4>Prekes priėmė:</h4>
+                </div>
+                <div>_________________________________________</div>
+                <div>(pareigos, vardas, pavardė, parašas)</div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

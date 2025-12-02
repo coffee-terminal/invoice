@@ -1,0 +1,235 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul,
+li {
+    list-style-type: none;
+
+}
+
+h4 {
+    margin-bottom: 5px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    /* padding: 10px; */
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+}
+
+#app {
+
+    background-color: gray;
+    width: 210mm;
+    /* height: 297mm; */
+    height: 100vh;
+    padding: 20px;
+    padding-left: 40px;
+    /* border: 1px solid black; */
+
+    header {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        .topHeader {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .headerSection {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+
+        .SaskaitosData {
+
+            display: flex;
+            justify-content: flex-end;
+            /* padding-right: 50px; */
+            flex-direction: row;
+        }
+    }
+
+    main {
+        .items {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            /* line-height: 41px; */
+
+            .TableColumns {
+                display: flex;
+                flex-direction: row;
+                background-color: lightgray;
+                border-bottom: 1px solid black;
+
+                .Numeris {
+                    width: 3%;
+                    text-align: center;
+
+                }
+
+                .Preke {
+                    border-left: 1px solid black;
+                    padding: 0 5px 0 5px;
+                    width: 40%;
+                }
+
+                .Kiekis,
+                .Kaina,
+                .Nuolaida,
+                .SuPVM,
+                .BePVM {
+                    border-left: 1px solid black;
+                    padding: 0 5px 0 5px;
+                    width: 11%;
+                }
+
+                .Kiekis {
+                    width: 8%;
+                }
+
+                .Nuolaida {
+                    width: 15%;
+                }
+            }
+
+            .item {
+                background-color: aliceblue;
+                display: flex;
+                flex-direction: row;
+                border-bottom: 1px solid black;
+
+                .itemDesc {
+                    width: 40%;
+                    border-left: 1px solid black;
+                    padding: 0 5px 0 5px;
+                }
+
+                .itemPrice,
+                .itemQuantity,
+                .itemDiscountValue,
+                .itemBePVM,
+                .itemSuPVM {
+                    display: flex;
+                    align-items: center;
+                    justify-content: right;
+                    padding: 0 5px 0 5px;
+                    column-gap: 10px;
+                    width: 11%;
+                    border-left: 1px solid black;
+                }
+
+                .itemQuantity {
+
+                    width: 8%;
+                }
+
+                .itemDiscountValue {
+                    width: 15%;
+                }
+
+                .itemNr {
+                    width: 3%;
+                    text-align: center;
+                }
+            }
+        }
+
+        .items>div:nth-child(odd) {
+            background-color: lightgray;
+        }
+
+
+
+    }
+
+    footer {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 97%;
+        /* border: 1px solid black; */
+        margin-left: 3%;
+
+        .sumosContainer {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .sumos {
+            font-weight: 600;
+
+        }
+
+        .shippingPrice {
+            padding: 0 5px 0 5px;
+            text-align: start;
+            /* width: 75%; */
+        }
+
+        .totalPrice {
+            /* width: 22%; */
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-between; */
+
+
+            .itemSumaSuPVM,
+            .itemSuma {
+                text-align: end;
+                /* width: 80.19px; */
+                padding: 0 5px 0 5px;
+                /* border-left: 1px solid black; */
+            }
+
+            .itemSumaSuPVM {
+                /* font-weight: bold; */
+            }
+
+        }
+
+        .dokTerminas {
+            display: flex;
+            flex-direction: row;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .Isdave,
+        .Priime {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            margin-top: 30px;
+            /* width: 100%; */
+
+            div:nth-of-type(3) {
+                width: 100%;
+                /* background-color: aliceblue; */
+                font-style: italic;
+                font-size: 12px;
+                margin-left: 150px;
+            }
+        }
+    }
+}
