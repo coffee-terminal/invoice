@@ -147,27 +147,25 @@ const items = (meta) => {
         if (meta.items.length == i) {
             const shippment = document.createElement('div');
             // shippment.className = 'shippmentPrice';
-            shippment.innerText = 'Siuntimo kaina: ' + meta.shippingPrice + ' eur.';
+            shippment.innerText = 'Siuntimo kaina: ' + meta.shippingPrice + ' Eur';
             shipping.append(shippment);
 
             const itemsSuma = document.createElement('div');
             itemsSuma.className = 'itemSuma';
             itemsSuma.innerText =
                 itemsSumaBePVM.toFixed(2) +
+                ' Eur' +
                 '\n' +
                 (itemsSumaBePVM + meta.shippingPrice).toFixed(2) +
+                ' Eur' +
                 '\n' +
-                ((itemsSumaBePVM + meta.shippingPrice) * 0.21).toFixed(2);
+                ((itemsSumaBePVM + meta.shippingPrice) * 0.21).toFixed(2) +
+                ' Eur';
             totalPrice.append(itemsSuma);
-
-            // const itemsSumaSuPVM = document.createElement('div');
-            // itemsSumaSuPVM.className = 'itemSumaSuPVM';
-            // itemsSumaSuPVM.innerText = itemsSumaPVM.toFixed(2);
-            // totalPrice.append(itemsSumaSuPVM);
 
             const itemsSumaSuPVM = document.createElement('div');
             itemsSumaSuPVM.className = 'itemSumaSuPVM';
-            itemsSumaSuPVM.innerText = (itemsSumaBePVM * 1.21).toFixed(2);
+            itemsSumaSuPVM.innerText = (itemsSumaBePVM * 1.21).toFixed(2) + ' Eur';
             totalPrice.append(itemsSumaSuPVM);
         }
     });
