@@ -139,11 +139,11 @@ const items = (meta) => {
         // itemsSumaPVM = itemsSumaPVM + itemItemSuma * 1.21;
         itemsSumaBePVM = itemsSumaBePVM + itemItemSuma * itemQuantity;
 
-        console.log(meta.items.length);
-        console.log(i);
+        // console.log(meta.items.length);
+        // console.log(i);
 
-        console.log(itemsSumaPVM);
-        console.log(itemsSumaBePVM);
+        // console.log(itemsSumaPVM);
+        // console.log(itemsSumaBePVM);
         if (meta.items.length == i) {
             const shippment = document.createElement('div');
             // shippment.className = 'shippmentPrice';
