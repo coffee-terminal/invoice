@@ -213,19 +213,27 @@ const skaciusZodziu = (number) => {
     if (number in numbersToWords) return numbersToWords[number];
 
     let words = '';
-    if (number >= 10000) {
-        words += numbersToWords[Math.floor(number / 1000)] + ' tūkstančių ';
+    if (number >= 21000) {
+        words += numbersToWords[Math.floor(number / 10000) * 10] + ' ';
+
+        words += numbersToWords[Math.floor((number / 1000) % 10)] + ' tūkst. ';
 
         number %= 1000;
     } else {
-        if (number >= 1000 && number < 2000) {
-            words += 'tūkstantis';
+        if (number >= 10000 && number < 21000) {
+            words += numbersToWords[Math.floor(number / 1000)] + ' tūkstančių ';
 
             number %= 1000;
-        } else if (number > 1000) {
-            words += numbersToWords[Math.floor(number / 1000)] + ' tūkstančiai ';
+        } else {
+            if (number >= 1000 && number < 2000) {
+                words += 'tūkstantis ';
 
-            number %= 1000;
+                number %= 1000;
+            } else if (number > 1000) {
+                words += numbersToWords[Math.floor(number / 1000)] + ' tūkstančiai ';
+
+                number %= 1000;
+            }
         }
     }
 
@@ -233,7 +241,7 @@ const skaciusZodziu = (number) => {
         words += 'šimtas';
 
         number %= 100;
-    } else if (number > 100) {
+    } else if (number >= 200) {
         words += numbersToWords[Math.floor(number / 100)] + ' šimtai';
 
         number %= 100;
@@ -242,12 +250,14 @@ const skaciusZodziu = (number) => {
     if (number > 0) {
         if (words !== '') words += ' ';
 
-        if (number < 20) words += numbersToWords[number];
+        if (number < 20) words += numbersToWords[number] + ' eurai ' + centai.slice(-2) + ' cent.';
         else {
             words += numbersToWords[Math.floor(number / 10) * 10];
 
             if (number % 10 > 0) {
-                words += ' ' + numbersToWords[number % 10] + ' eurai ' + centai.slice(-2) + ' centai';
+                words += ' ' + numbersToWords[number % 10] + ' eurai ' + centai.slice(-2) + ' cent.';
+            } else {
+                words += ' eurai ' + centai.slice(-2) + ' cent.';
             }
         }
     }
