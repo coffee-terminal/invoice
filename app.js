@@ -146,9 +146,10 @@ const items = (meta) => {
         // console.log(itemsSumaBePVM);
         if (meta.items.length == i) {
             const shippment = document.createElement('div');
-            // shippment.className = 'shippmentPrice';
-            shippment.innerText = 'Siuntimo kaina: ' + meta.shippingPrice + ' Eur';
-            shipping.append(shippment);
+            shippment.className = 'shippmentPrice';
+            shippment.innerText = meta.shippingPrice.toFixed(2) + ' Eur';
+
+            totalPrice.append(shippment);
 
             const itemsSuma = document.createElement('div');
             itemsSuma.className = 'itemSuma';
@@ -171,6 +172,89 @@ const items = (meta) => {
     });
 };
 
+const numbersToWords = {
+    0: 'nulis',
+    1: 'vienas',
+    2: 'du',
+    3: 'trys',
+    4: 'keturi',
+    5: 'penki',
+    6: 'šeši',
+    7: 'septyni',
+    8: 'aštuoni',
+    9: 'devyni',
+    10: 'dešimt',
+    11: 'vienuolika',
+    12: 'dvylika',
+    13: 'trylika',
+    14: 'keturiolika',
+    15: 'penkiolika',
+    16: 'šešiolika',
+    17: 'septyniolika',
+    18: 'aštuoniolika',
+    19: 'devyniolika',
+    20: 'dvidešimt',
+    30: 'trisdešimt',
+    40: 'keturiasdešimt',
+    50: 'penkiasdešimt',
+    60: 'šešiasdešimt',
+    70: 'septyniasdešimt',
+    80: 'aštuoniasdešimt',
+    90: 'devyniasdešimt',
+};
+
+const skaciusZodziu = (number) => {
+    saskaitosVisaSuma = document.querySelector('.itemSumaSuPVM');
+    pastaba2text = document.querySelector('.pastaba2');
+
+    number = parseInt(saskaitosVisaSuma.innerHTML);
+    centai = parseFloat(saskaitosVisaSuma.innerHTML).toFixed(2);
+    // console.log(centai.slice(-2));
+    if (number in numbersToWords) return numbersToWords[number];
+
+    let words = '';
+    if (number >= 10000) {
+        words += numbersToWords[Math.floor(number / 1000)] + ' tūkstančių ';
+
+        number %= 1000;
+    } else {
+        if (number >= 1000 && number < 2000) {
+            words += 'tūkstantis';
+
+            number %= 1000;
+        } else if (number > 1000) {
+            words += numbersToWords[Math.floor(number / 1000)] + ' tūkstančiai ';
+
+            number %= 1000;
+        }
+    }
+
+    if (number >= 100 && number < 200) {
+        words += 'šimtas';
+
+        number %= 100;
+    } else if (number > 100) {
+        words += numbersToWords[Math.floor(number / 100)] + ' šimtai';
+
+        number %= 100;
+    }
+
+    if (number > 0) {
+        if (words !== '') words += ' ';
+
+        if (number < 20) words += numbersToWords[number];
+        else {
+            words += numbersToWords[Math.floor(number / 10) * 10];
+
+            if (number % 10 > 0) {
+                words += ' ' + numbersToWords[number % 10] + ' eurai ' + centai.slice(-2) + ' centai';
+            }
+        }
+    }
+
+    return (pastaba2text.innerHTML = `<b>Iš viso suma su PVM: </b> ${words}`);
+};
+
 fetch('https://in3.dev/inv/')
     .then((res) => res.json())
     .then((meta) => {
@@ -179,4 +263,5 @@ fetch('https://in3.dev/inv/')
         pirkejasInfo(meta);
         pardavejasInfo(meta);
         items(meta);
+        console.log(skaciusZodziu(200));
     });

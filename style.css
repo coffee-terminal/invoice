@@ -30,8 +30,8 @@ body {
 
     background-color: gray;
     width: 210mm;
-    /* height: 297mm; */
-    height: 100vh;
+    min-height: 260mm;
+    /* height: 100vh; */
     padding: 20px;
     padding-left: 40px;
     /* border: 1px solid black; */
@@ -164,7 +164,8 @@ body {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-between;
+        /* justify-content: space-between; */
+        justify-content: flex-end;
         width: 97%;
         /* border: 1px solid black; */
         margin-left: 3%;
@@ -172,6 +173,8 @@ body {
         .sumosContainer {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
+            width: 40%;
         }
 
         .sumos {
@@ -180,7 +183,7 @@ body {
         }
 
         .shippingPrice {
-            padding: 0 5px 0 5px;
+            /* padding: 0 5px 0 5px; */
             text-align: start;
             /* width: 75%; */
         }
@@ -193,6 +196,7 @@ body {
 
 
             .itemSumaSuPVM,
+            .shippmentPrice,
             .itemSuma {
                 text-align: end;
                 /* width: 80.19px; */
@@ -204,6 +208,15 @@ body {
                 font-weight: bold;
             }
 
+        }
+
+        .pastabaToText {
+            width: 100%;
+
+            .pastaba2 {
+                margin-top: 30px;
+
+            }
         }
 
         .dokTerminas {
