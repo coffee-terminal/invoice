@@ -250,14 +250,14 @@ const skaciusZodziu = (number) => {
     if (number > 0) {
         if (words !== '') words += ' ';
 
-        if (number < 20) words += numbersToWords[number] + ' eurai ' + centai.slice(-2) + ' cent.';
+        if (number < 20) words += numbersToWords[number] + ' eur. ' + centai.slice(-2) + ' cent.';
         else {
             words += numbersToWords[Math.floor(number / 10) * 10];
 
             if (number % 10 > 0) {
-                words += ' ' + numbersToWords[number % 10] + ' eurai ' + centai.slice(-2) + ' cent.';
+                words += ' ' + numbersToWords[number % 10] + ' eur. ' + centai.slice(-2) + ' cent.';
             } else {
-                words += ' eurai ' + centai.slice(-2) + ' cent.';
+                words += ' eur. ' + centai.slice(-2) + ' cent.';
             }
         }
     }
